@@ -3,7 +3,7 @@
 class MessageTooLargeError extends Error {
   constructor(length, maxLength) {
     super(`Message too large (${length} > ${maxLength})`);
-    this.name = "MessageTooLargeError";
+    this.name = 'MessageTooLargeError';
     this.length = length;
     this.maxLength = maxLength;
   }
@@ -11,22 +11,22 @@ class MessageTooLargeError extends Error {
 
 class InvalidTokenError extends Error {
   constructor() {
-    super("Invalid Token");
-    this.name = "InvalidTokenError";
+    super('Invalid Token');
+    this.name = 'InvalidTokenError';
   }
 }
 
 class InvalidChannelIdError extends Error {
   constructor() {
-    super("Invalid Channel Id");
-    this.name = "InvalidChannelIdError";
+    super('Invalid Channel Id');
+    this.name = 'InvalidChannelIdError';
   }
 }
 
 class ChordDBNotStartedError extends Error {
   constructor() {
-    super("ChordDB not started");
-    this.name = "ChordDBNotStartedError";
+    super('ChordDB not started');
+    this.name = 'ChordDBNotStartedError';
   }
 }
 
@@ -34,5 +34,5 @@ module.exports = {
   MessageTooLargeError,
   InvalidChannelIdError,
   InvalidTokenError,
-  ChordDBNotStartedError
+  ChordDBNotStartedError,
 };
