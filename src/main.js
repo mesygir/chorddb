@@ -1,12 +1,12 @@
 // Main \\
 
-const { encrypt, setup, decrypt, dc_call } = require('./functions');
+const { encrypt, setup, decrypt, dc_call } = require("./functions");
 const {
   MessageTooLargeError,
   InvalidTokenError,
   InvalidChannelIdError,
   ChordDBNotStartedError,
-} = require('./errors');
+} = require("./errors");
 
 class UDB {
   constructor(token, encryption_key, channel_id) {
@@ -19,7 +19,7 @@ class UDB {
   async start() {
     setup(this.token, this.enc_key, this.ch_id);
 
-    const user_info = await dc_call('/users/@me');
+    const user_info = await dc_call("/users/@me");
     const channel_info = await dc_call(`/channels/${this.ch_id}`);
 
     if (user_info.id) {
@@ -40,7 +40,7 @@ class UDB {
       process.exit();
     }
 
-    console.log('chorddb: ChordDB is Ready.');
+    console.log("chorddb: ChordDB is Ready.");
     this.isStarted = true;
   }
 
@@ -62,7 +62,7 @@ class UDB {
       return true;
     }
 
-    const r = await dc_call(`/channels/${this.ch_id}/messages`, 'POST', {
+    const r = await dc_call(`/channels/${this.ch_id}/messages`, "POST", {
       content: enc_data,
     });
 
@@ -77,8 +77,8 @@ class UDB {
     this._checkStarted();
 
     let final_data = null;
-    const key = identifier['key'];
-    const value = identifier['value'];
+    const key = identifier["key"];
+    const value = identifier["value"];
 
     let msgs;
     msgs = await dc_call(`/channels/${this.ch_id}/messages`);
@@ -122,7 +122,7 @@ class UDB {
           const newContent = encrypt(JSON.stringify(parsed));
           const r = await dc_call(
             `/channels/${this.ch_id}/messages/${msg.id}`,
-            'PATCH',
+            "PATCH",
             { content: newContent },
           );
 

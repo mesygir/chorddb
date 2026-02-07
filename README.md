@@ -25,7 +25,7 @@ npm install chorddb
 Start by importing ChordDB
 
 ```js
-const { UDB } = require('chorddb');
+const { UDB } = require("chorddb");
 ```
 
 ### **1.3 Initialize**
@@ -33,7 +33,7 @@ const { UDB } = require('chorddb');
 #### Define Values for ChordDB
 
 ```js
-const db = new UDB('TOKEN', 'ENCRYPTION_KEY', 'CHANNEL_ID');
+const db = new UDB("TOKEN", "ENCRYPTION_KEY", "CHANNEL_ID");
 ```
 
 **IMPORTANT:** Be sure to call your DB and start it by:
@@ -52,28 +52,28 @@ db.start();
 ### **1.5 Example usage**
 
 ```js
-const { UDB } = require('chorddb');
+const { UDB } = require("chorddb");
 
-const db = new UDB('YOUR_DISCORD_TOKEN', 'ENCRYPTION_KEY', 'CHANNEL_ID');
+const db = new UDB("YOUR_DISCORD_TOKEN", "ENCRYPTION_KEY", "CHANNEL_ID");
 
 (async () => {
   await db.start();
 
   const writeSuccess = await db.write({
-    key: 'user123',
-    name: 'Someone',
+    key: "user123",
+    name: "Someone",
     coins: 100,
   });
-  console.log('Write successful?', writeSuccess);
+  console.log("Write successful?", writeSuccess);
 
-  const user = await db.find({ key: 'key', value: 'user123' });
-  console.log('Found user:', user);
+  const user = await db.find({ key: "key", value: "user123" });
+  console.log("Found user:", user);
 
-  const editSuccess = await db.edit(['key', 'user123'], ['coins', 150]);
-  console.log('Edit successful?', editSuccess);
+  const editSuccess = await db.edit(["key", "user123"], ["coins", 150]);
+  console.log("Edit successful?", editSuccess);
 
   const allData = await db.read();
-  console.log('All data in DB:', allData);
+  console.log("All data in DB:", allData);
 })();
 ```
 

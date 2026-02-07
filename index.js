@@ -1,4 +1,4 @@
-const { UDB } = require('./src/main');
+const { UDB } = require("./src/main");
 
 module.exports = {
   UDB,
